@@ -74,7 +74,7 @@ public class NodoDoble extends Canvas
     	if(palo==1){
     		nombre+="de Trebol";
     	}
-    	else
+    	/*else
     	if(palo==2){
     		nombre+="de Diamantes";
     	}else
@@ -83,7 +83,7 @@ public class NodoDoble extends Canvas
     	}else
     	if(palo==4){
     		nombre+="de Espadas";
-    	}
+    	}*/
     	return nombre;	
     }
     
