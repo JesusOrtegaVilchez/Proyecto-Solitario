@@ -432,7 +432,7 @@ public class PanelSolitario extends JPanel implements MouseListener,MouseMotionL
    			}
    			if(i>20&&i<=27){
    				otras[6].int_fin(new NodoDoble(car.valor,car.palo,otras[6].x,otras[6].y+x1,car.voltiada));
-   			}
+   			}//añadir mas filas del mismo tipo para añadir mas columnas
    			x1+=5;
    			
    			if(i==0) x1=0; if(i==2) x1=0; if(i==5) x1=0; if(i==9) x1=0; if(i==14) x1=0; if(i==20) x1=0;
