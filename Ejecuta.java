@@ -44,7 +44,7 @@ public class Ejecuta extends JFrame{
     	menu1.add(men2);
     	menu.add(menu1);
     	panel.setBackground(Color.yellow);
-    	setSize(800,580);
+    	setSize(800,540);
     	setLocationRelativeTo(null);
     	setVisible(true);
     }
