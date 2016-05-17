@@ -36,7 +36,7 @@ public class Ejecuta extends JFrame{
     	men3.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent e)
     		{
-    			JOptionPane.showMessageDialog(null,"ETHOS software corporation\nSolitario Clasico en Java version 1.0\nProgramado por Jesus Ortega");
+    			JOptionPane.showMessageDialog(null,"DAM software corporation\nSolitario Clasico en Java version 1.0");
     		}
     	});
     	setResizable(false);
