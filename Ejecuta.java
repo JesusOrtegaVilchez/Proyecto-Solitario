@@ -36,7 +36,7 @@ public class Ejecuta extends JFrame{
     	men3.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent e)
     		{
-    			JOptionPane.showMessageDialog(null,"DAM software corporation\nSolitario Clasico en Java version 1.0");
+    			JOptionPane.showMessageDialog(null,"DAM software corporation\nSolitario Spider en Java version 1.0");
     		}
     	});
     	setResizable(false);
