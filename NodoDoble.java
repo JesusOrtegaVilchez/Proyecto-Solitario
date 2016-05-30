@@ -1,4 +1,5 @@
-package clases;
+
+ package clases;
  import javax.swing.*;
  import java.awt.*;
 
@@ -11,21 +12,22 @@ public class NodoDoble extends Canvas
 	private static final long serialVersionUID = 1L;
 	NodoDoble ant;
 	int valor;
-	int palo;
+	int palo = 2;
 	NodoDoble next;
 	Image carta;
 	Image vuelta;
-	boolean voltiada;
+	boolean dada_la_vuelta;
 	int x,y,max=78,may=98;//78 y 98
 	boolean dibu=true;
 	
-	public NodoDoble(int v,int pal,int x1,int y1,boolean volti)
+	public NodoDoble(int v,int pal,int x1,int y1,boolean volteada)
 	{
 		valor = v;
-		palo=pal;
+		palo=2;
+		pal=palo;
 		x=x1;
 		y=y1;
-		voltiada=volti;
+		dada_la_vuelta=volteada;
 		cargarImagen();
 	}
     
@@ -34,9 +36,10 @@ public class NodoDoble extends Canvas
     	ant = a;
     	valor = v;
 		palo=2;
+    	pal=palo;
 		x=x1;
 		y=y1;
-		voltiada=volti;
+		dada_la_vuelta=volti;
     	next = s;
     	cargarImagen();
     }
@@ -44,7 +47,7 @@ public class NodoDoble extends Canvas
     public void cargarImagen()
     {
     	String nombre="imagenes/palo"+palo+"_"+valor+".JPG";
-    	//System.out.println (nombre);
+    	System.out.println (nombre);
     	carta=new ImageIcon(nombre).getImage();
 		vuelta=new ImageIcon("imagenes/dorsal_spider2.png").getImage();
     }
@@ -52,7 +55,7 @@ public class NodoDoble extends Canvas
     public void dibujar(Graphics g)
     {
     	if(dibu)
-    	if(voltiada==false){
+    	if(dada_la_vuelta==false){
     		g.drawImage(vuelta,x,y,this);
     	}	else{
     		g.drawImage(carta,x,y,this);
