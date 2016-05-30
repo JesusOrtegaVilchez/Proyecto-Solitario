@@ -1,3 +1,4 @@
+
 package clases;
 
 import java.awt.Graphics;
@@ -241,11 +242,9 @@ public class ListaCartas
 			} 
 			else return false;
 		}
-		return false;
-	}
-		/*else
-		{
-					if(info.palo==1||info.palo==3)
+			
+	
+		if(info.palo==1||info.palo==3)
 					{
 						if((ultimo.palo==2||ultimo.palo==4)&&(info.valor==ultimo.valor-1))
 						{
@@ -260,12 +259,12 @@ public class ListaCartas
 						int_fin(info);
 						return true;
 						}
-					}
-				}
-			
-		
+					}	
+					
 		return false;
-	}*/
+}
+
+
 	
 	boolean vacia()
 	{
