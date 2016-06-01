@@ -244,22 +244,14 @@ public class ListaCartas
 		}
 			
 	
-		if(info.palo==1||info.palo==3)
+		if(info.palo==2)
 					{
-						if((ultimo.palo==2||ultimo.palo==4)&&(info.valor==ultimo.valor-1))
+						if(info.valor==ultimo.valor-1)
 						{
 						int_fin(info);
 						return true;
 						}
 					} 
-					else
-					{
-						if((ultimo.palo==1||ultimo.palo==3)&&(info.valor==ultimo.valor-1))
-						{
-						int_fin(info);
-						return true;
-						}
-					}	
 					
 		return false;
 }
