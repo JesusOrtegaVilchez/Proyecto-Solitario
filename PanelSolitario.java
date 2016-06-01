@@ -6,28 +6,35 @@ import java.awt.event.*;
 import java.util.Random;
 
 public class PanelSolitario extends JPanel implements MouseListener,MouseMotionListener{
-	JLabel fondo = new JLabel(new ImageIcon("imagenes/fondo.png"));
+	JLabel fondo = new JLabel(new ImageIcon("imagenes/fondo.jpg"));
+	
 	private static final long serialVersionUID = 1L;
-	ListaCartas mazo = new ListaCartas(580,360,70,104);
-	ListaCartas pila = new ListaCartas(668,360,70,104);
-	ListaCartas otras[]= new ListaCartas[10];
-	ListaCartas ganar[]=new ListaCartas[4];
+	ListaCartas mazo = new ListaCartas(40,30,70,104);//40 30 posicion donde se mostraran las cartas de la pila
+	ListaCartas pila = new ListaCartas(120,30,70,104);// 120 30 posicion de la pila con las cartas disponibles
+	ListaCartas otras[]= new ListaCartas[7]; //total de mazos para jugar
+	ListaCartas ganar[]=new ListaCartas[4];//total de mazos necesarios para ganar
 	ListaCartas tmpL = null;
 	
 	NodoDoble seleccionada;
 	int xm=0,ym=0;
 	boolean mover=true;
-	boolean volti[]={true,false,true,false,false,true,false,false,false,true,false,false,false,false,true,false,false,false,false,false,true,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false};	
-    int viejas=0,viejas2=0;
+	boolean volti[]={true,false,true,false,false,true,false,false,false,true,false,false,false,false,true,false,false,false,false,false,true,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true};//colocacion de las cartas
+	int viejas=0,viejas2=0;
     Timer time;
     boolean ban=false;
+    
 
     public PanelSolitario() {
+    	
     	int x1=0;
     	setLayout(null);
-    	fondo.setBounds(0,0,797,490);
-    	fondo.setSize(1070,600);
+    	setVisible(true);
+    	
+    	fondo.setBounds(0,0,790,490);
+    	//fondo.setSize(900,490);//Añadimos este metodo para adaptar el fondo a la ventana pero despues de las pruebas no fue necesario
+    	
     	add(fondo);
+    	
     	time=new Timer(15,new ActionListener(){
     		public void actionPerformed(ActionEvent e)
     		{
@@ -72,8 +79,8 @@ public class PanelSolitario extends JPanel implements MouseListener,MouseMotionL
     	repaint();
     	} 
 
-    
-    public void paint(Graphics g)
+
+	public void paint(Graphics g)
     {
     	super.paint(g);
     	
@@ -138,8 +145,8 @@ public class PanelSolitario extends JPanel implements MouseListener,MouseMotionL
    		}
    		}
    		seleccionada=null;
-   		System.out.println ("Tamano de pila:"+pila.tamanio());
-   		System.out.println ("Tamano de mazo:"+mazo.tamanio());
+   		System.out.println ("Tamaño de pila:"+pila.tamanio());
+   		System.out.println ("Tamaño de mazo:"+mazo.tamanio());
    		repaint();	
    	}
    	
@@ -392,10 +399,10 @@ public class PanelSolitario extends JPanel implements MouseListener,MouseMotionL
    	
    	public void llenarListas()
    	{
-   		int x1=41;
+   		int x1=39;
    		for (int i = 0; i<otras.length; i++) 
    		{
-   			otras[i]=new ListaCartas(x1,70,70,104);
+   			otras[i]=new ListaCartas(x1,150,70,104);
    			x1+=108;
 		}
 		x1=0;
@@ -434,19 +441,11 @@ public class PanelSolitario extends JPanel implements MouseListener,MouseMotionL
    			if(i>20&&i<=27){
    				otras[6].int_fin(new NodoDoble(car.valor,car.palo,otras[6].x,otras[6].y+x1,car.dada_la_vuelta));
    			}//añadir filas del mismo tipo para añadir mas columnas
-   			if(i>27&&i<=35){
-   				otras[7].int_fin(new NodoDoble(car.valor,car.palo,otras[7].x,otras[7].y+x1,car.dada_la_vuelta));
-   			}
-   			if(i>35&&i<=42){
-   				otras[8].int_fin(new NodoDoble(car.valor,car.palo,otras[8].x,otras[8].y+x1,car.dada_la_vuelta));
-   			}
-   			if(i>42&&i<=49){
-   				otras[9].int_fin(new NodoDoble(car.valor,car.palo,otras[9].x,otras[9].y+x1,car.dada_la_vuelta));
-   			}
-   			x1+=10;
+   			
+   			x1+=7;//separacion entre cartas puesta una encima de otras
    		
    			
-   			if(i==0) x1=0; if(i==2) x1=0; if(i==5) x1=0; if(i==9) x1=0;if(i==14) x1=0; if(i==20) x1=0; if(i==27) x1=0;if(i==35) x1=0;if(i==42) x1=0;if(i==49) x1=0;
+   			if(i==0) x1=0; if(i==2) x1=0; if(i==5) x1=0; if(i==9) x1=0;if(i==14) x1=0; if(i==20) x1=0; if(i==27) x1=0;
    				
    			mazo.eliminaEn_pos(mazo.tamanio());
 		}
@@ -454,11 +453,11 @@ public class PanelSolitario extends JPanel implements MouseListener,MouseMotionL
    	}
    	
    	public void ganar(){
-   		if(ganar[0].tamanio()==13&&ganar[1].tamanio()==13&&ganar[2].tamanio()==13&&ganar[3].tamanio()==13)
+   		if(ganar[0].tamanio()==1&&ganar[1].tamanio()==1&&ganar[2].tamanio()==1&&ganar[3].tamanio()==1)
    		{
    			time.stop();
    			JOptionPane.showMessageDialog(null,"Has Ganado, Felicidades.");
-   			System.exit(0);
+   			System.exit(0);//cierra el juego si ganas, se puede quitar para que el jugador le de a nueva partida
    		}
    	}
 }
