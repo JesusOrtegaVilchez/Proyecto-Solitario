@@ -49,7 +49,7 @@ public class NodoDoble extends Canvas
     	String nombre="imagenes/palo"+palo+"_"+valor+".JPG";
     	System.out.println (nombre);
     	carta=new ImageIcon(nombre).getImage();
-		vuelta=new ImageIcon("imagenes/dorsal_spider2.png").getImage();
+		vuelta=new ImageIcon("imagenes/dorsal_spider.png").getImage();
     }
     
     public void dibujar(Graphics g)
@@ -74,19 +74,10 @@ public class NodoDoble extends Canvas
     		nombre+="Dos";
     	}
     	
-    	if(palo==1){
+    	if(palo==2){
     		nombre+="de Trebol";
     	}
-    	/*else
-    	if(palo==2){
-    		nombre+="de Diamantes";
-    	}else
-    	if(palo==3){
-    		nombre+="de Corazones";
-    	}else
-    	if(palo==4){
-    		nombre+="de Espadas";
-    	}*/
+    	
     	return nombre;	
     }
     
